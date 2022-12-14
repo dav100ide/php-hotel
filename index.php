@@ -55,43 +55,52 @@
 </head>
 <body>
    <div class="container">
-         <?php 
-            foreach ( $hotels as $hotel) {
-               
-         ?>
-      <table class="table-info table table-striped mb-5">
-         <tr>
-            <th>
-               <h3 class="text-decoration-underline">
-                  <?php echo $hotel['name'] ?>
-               </h3>
-            </th>
-         </tr>
-         <tr>
-            <td>
-               <h4>
-                  <?php echo $hotel['description'] ?>
-               </h4>
-            </td>
-         </tr>
-         <tr>
-            <td>
-               <strong>
-                  parcheggio: 
-                        <?php if( $hotel['parking'] ){
-                           echo 'si';
-                        } else{
-                           echo 'no';
-                        }
-                        ?>
-               </strong>
-               <p class="fs-3">
-                  <?php echo 'voto:'.$hotel['vote'] . ' distanza dal centro: ' . $hotel['distance_to_center'].'km' ?>
-               </p>
-            </td>
-         </tr>
-      </table>
-      <?php } ?>
+      <form action="GET" class="my-3 fs-5">
+         <label for="parking">filtra per parcheggio</label>
+         <select name="parking" id="parking">
+            <option value="true" selected>CON parcheggio</option>
+            <option value="false">SENZA parcheggio</option>
+         </select>
+         <button class="btn btn-info" type="submit">submit</button>
+      </form>    
+      <?php 
+         foreach ( $hotels as $hotel) {         
+      ?>
+         <table class="table-info table table-striped mb-5">
+            <tr>
+               <th>
+                  <h3 class="text-decoration-underline">
+                     <?php echo $hotel['name'] ?>
+                  </h3>
+               </th>
+            </tr>
+            <tr>
+               <td>
+                  <h4>
+                     <?php echo $hotel['description'] ?>
+                  </h4>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <strong>
+                     parcheggio: 
+                           <?php if( $hotel['parking'] ){
+                              echo 'si';
+                           } else{
+                              echo 'no';
+                           }
+                           ?>
+                  </strong>
+                  <p class="fs-3">
+                     <?php echo 'voto:'.$hotel['vote'] . ' distanza dal centro: ' . $hotel['distance_to_center'].'km' ?>
+                  </p>
+               </td>
+            </tr>
+         </table>
+      <?php 
+       }
+      ?>
    </div>
    <!-- bootstrap js -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
