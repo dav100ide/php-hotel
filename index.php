@@ -57,10 +57,21 @@
    <div class="container">
       <form action="GET" class="my-3 fs-5">
          <label for="parking">filtra per parcheggio</label>
+         <!-- select parcheggio -->
          <select name="parking" id="parking">
             <option value="true" selected>CON parcheggio</option>
             <option value="false">SENZA parcheggio</option>
          </select>
+         <!-- /select parcheggio -->
+         <!-- select voto -->
+         <select name="vote" id="vote">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+         </select>
+         <!-- /select voto -->
          <button class="btn btn-info" type="submit">submit</button>
       </form>    
       <?php 
